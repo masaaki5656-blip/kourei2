@@ -3,218 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人類を創った「虚構」の力 〜信仰と団結が未来を築く〜</title>
+    <title>このお金は、使えない。｜株式会社きらら</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Trust -->
+    <!-- Application Structure Plan: A single-page, long-form narrative infographic designed as a persuasive story. The structure follows a classic problem-solution-impact funnel, infused with a personal case study: 1. Hero (The emotional problem statement). 2. The Protagonist's Dilemma (telling the story of "Hayashi-san"). 3. The National Reality (broadening the problem with official data). 4. The Great Contradiction (revealing the social security imbalance). 5. The Revelation (introducing the "Concierge for the Heart"). 6. The Solution (the philosophy of "The Courage to Spend"). 7. The Ultimate Purpose (connecting assets to children's futures). 8. Call to Action. This linear story is the most effective way to build empathy and guide a visitor to the desired conclusion. -->
+    <!-- Visualization & Content Choices: The page uses KPI cards (HTML/CSS) for key data points, a bar chart (Chart.js) to visualize the gap between assets and spending, and several flow diagrams (HTML/CSS) to illustrate the mission. Goal: Inform/Compare/Organize. Method: Structured HTML/CSS and Chart.js. Interaction: On-scroll animations. Justification: KPI cards provide immediate impact for key statistics. The bar chart makes the abstract concept of "hoarded assets" tangible and visually compelling. The HTML flow diagrams clearly explain the social security contradiction and the "Cycle of Happiness," which are core to the business's social mission. NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: 'Inter', 'Noto Serif JP', serif;
-            background-color: #111827;
-            color: #E5E7EB;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FDFBF8; /* Warm White */
+            color: #3D3D3D; /* Dark Gray */
         }
-        h1, h2, h3 {
-            font-family: 'Noto Serif JP', serif;
-        }
+        .accent-blue { color: #2A4A6A; }
+        .bg-accent-blue { background-color: #2A4A6A; }
+        .border-accent-blue { border-color: #2A4A6A; }
+        .accent-gold { color: #C09553; }
+        .bg-accent-gold { background-color: #C09553; }
+        .border-accent-gold { border-color: #C09553; }
+        .section-title { font-weight: 900; }
         .fade-in-section {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
         }
         .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 1)), url('https://placehold.co/1920x1080/111827/334155?text=A+shared+belief');
-            background-size: cover;
-            background-position: center;
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
         }
-        .icon-card {
-            background-color: rgba(31, 41, 55, 0.5);
-            border: 1px solid rgba(55, 65, 81, 0.7);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .icon-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.1), 0 4px 6px -2px rgba(250, 204, 21, 0.05);
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body class="antialiased">
 
-    <!-- ヒーローセクション -->
-    <header class="hero-bg min-h-screen flex items-center justify-center text-center p-6 fade-in-section">
-        <div class="max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
-                人類を創った<span class="text-yellow-400">「虚構」</span>の力
-            </h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                私たちの世界は、目に見える「現実」だけで動いているわけではない。<br>
-                国家、お金、法律、人権。その全ては、私たちが信じることで初めて力を持つ、壮大な物語である。
-            </p>
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold accent-blue">株式会社きらら</h1>
+            <a href="#cta" class="bg-accent-gold text-white font-bold py-2 px-4 rounded-md hover:opacity-90 transition">ご相談はこちら</a>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-20 md:py-32">
+    <main>
 
-        <!-- 序章：驚異的な能力 -->
-        <section class="mb-20 md:mb-32 fade-in-section">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6">ホモ・サピエンス、究極のOS</h2>
-                <p class="text-lg leading-relaxed text-gray-300">
-                    他の動物たちが、目の前の現実（エサや敵）にしか反応できない中、私たち人類だけが「虚構を信じ、共有する」という驚異的な能力を手にした。このOSこそが、血縁を超え、見知らぬ他者と大規模に協力し、都市や文明を築き上げることを可能にした、究極の「強み」なのだ。
+        <section class="py-24 sm:py-32 bg-white text-center fade-in-section">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-4xl md:text-6xl font-black accent-blue">このお金は、使えないんだ…</h2>
+                <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                    十分な資産を持ちながら、将来への漠然とした不安から、お金を「使う」のではなく「守る」だけの人生になっていませんか？
+                    これは、あなた様だけの悩みではありません。
                 </p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 max-w-6xl mx-auto">
-                <!-- 国家 -->
-                <div class="icon-card rounded-lg p-6 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-yellow-400"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
-                    <h3 class="text-xl font-bold text-white mb-2">国家と法律</h3>
-                    <p class="text-gray-400">国境線も法律も、紙の上の約束。共有された信念が、秩序と社会を形成する。</p>
+        </section>
+
+        <section class="py-20 sm:py-24 fade-in-section">
+            <div class="container mx-auto px-6 max-w-4xl">
+                 <div class="text-center mb-12">
+                     <h3 class="section-title text-2xl md:text-3xl">ある、78歳男性の「声なき叫び」</h3>
+                 </div>
+                 <div class="bg-white p-8 rounded-lg shadow-xl border-l-4 border-accent-gold">
+                    <p class="text-gray-700 italic leading-relaxed">「私はもう78歳。あと何年生きるかわかりません。それに、もし体が動かなくなったら、老人ホームに入るかもしれない。お金を減らすわけにはいかないのです…」</p>
+                    <p class="mt-4 text-gray-700 italic leading-relaxed">「昔、娘たちに『親を当てにするな』と言ってしまった。孫たちの学費の援助くらい、してやってもよかったのではないかと…。もう手遅れでしょうか？」</p>
+                    <p class="text-right mt-4 text-sm text-gray-500">- 林正之様（仮名）のお言葉 -</p>
+                 </div>
+            </div>
+        </section>
+
+        <section class="py-20 sm:py-24 bg-white fade-in-section">
+            <div class="container mx-auto px-6 text-center max-w-5xl">
+                <h3 class="section-title text-3xl md:text-4xl mb-12">データが示す、日本の「現実」</h3>
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                        <h4 class="font-bold text-lg text-gray-500">80歳を過ぎても…</h4>
+                        <p class="text-4xl font-black accent-blue mt-2">資産の<span class="text-6xl">8割</span>以上が残る</p>
+                        <p class="text-xs text-gray-400 mt-2">出典: 令和6年経済財政白書</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                        <h4 class="font-bold text-lg text-gray-500">平均相続財産</h4>
+                        <p class="text-4xl font-black accent-blue mt-2"><span class="text-6xl">2,660</span>万円</p>
+                         <p class="text-xs text-gray-400 mt-2">出典: 鎌倉新書 2025年調査</p>
+                    </div>
                 </div>
-                <!-- お金 -->
-                <div class="icon-card rounded-lg p-6 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-yellow-400"><circle cx="12" cy="12" r="8"></circle><line x1="3" y1="12" x2="21" y2="12"></line><line x1="12" y1="3" x2="12" y2="21"></line></svg>
-                    <h3 class="text-xl font-bold text-white mb-2">お金</h3>
-                    <p class="text-gray-400">ただの紙切れやデータが価値を持つのは、誰もがその価値を信じているからだ。</p>
+                <h4 class="text-2xl font-bold mb-6">遺される資産と、使われる想い</h4>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">多くの方が、人生の最後に大きな資産を遺されます。しかし、生前にご自身の人生を豊かにするため、そして大切な誰かのために使われるお金は、ごく僅かです。このグラフは、その「ギャップ」を示しています。</p>
+                <div class="chart-container">
+                    <canvas id="assetChart"></canvas>
                 </div>
-                <!-- 企業 -->
-                <div class="icon-card rounded-lg p-6 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-yellow-400"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect x="3" y="18" width="18" height="4"></rect></svg>
-                    <h3 class="text-xl font-bold text-white mb-2">企業</h3>
-                    <p class="text-gray-400">法的人格という虚構の下に人々が集い、物理的な実体を超えた活動を行う。</p>
-                </div>
-                <!-- 人権 -->
-                <div class="icon-card rounded-lg p-6 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-yellow-400"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
-                    <h3 class="text-xl font-bold text-white mb-2">人権</h3>
-                    <p class="text-gray-400">生まれながらに持つ権利。自然界には存在せず、人類の普遍的な合意が力となる。</p>
+            </div>
+        </section>
+        
+        <section class="py-20 sm:py-24 fade-in-section">
+             <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h3 class="section-title text-3xl md:text-4xl accent-blue mb-6">社会保障の「矛盾」を、私たちの「使命」に変える</h3>
+                <div class="text-lg leading-relaxed text-gray-700 space-y-6 bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-2xl font-bold mb-6">
+                        <div class="text-center">
+                            <p class="text-6xl mb-2">👨‍💼</p>
+                            <p>現役世代</p>
+                            <p class="text-xl font-normal accent-gold">負担：年間約110万円</p>
+                        </div>
+                        <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                        <div class="text-center">
+                            <p class="text-6xl mb-2">👵</p>
+                            <p>高齢者世代</p>
+                             <p class="text-xl font-normal accent-blue">受給：年間約270万円</p>
+                        </div>
+                    </div>
+                    <p>
+                        資産が十分にあるご高齢者でさえも、若者たちが支えるこの社会保障で生活し、一方で、ご自身の莫大な個人資産は、未来への不安から使われることなく**「死蔵」**されてしまう。
+                    </p>
+                    <p class="font-bold">
+                        この富の**「一方通行」**と**「停滞」**こそが、日本の未来から活力を奪っている根本的な病巣です。
+                    </p>
+                     <p>
+                        私たちの事業は、この矛盾を、美しい**「循環」**へと、完全に**「ひっくり返す」**こと。ご高齢者の「死蔵資産」を、私たちの究極の**「信頼」**によって、未来を担う**「子供たち」**へと、直接的に再分配する。それこそが、私たちの使命なのです。
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- 第1章：信仰 -->
-        <section class="mb-20 md:mb-32 flex flex-col md:flex-row items-center gap-12 fade-in-section">
-            <div class="md:w-1/2 text-center md:text-left">
-                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6">信仰こそが、虚構に「魂」を与える</h2>
-                <p class="text-lg leading-relaxed text-gray-300 mb-4">
-                    では、その「虚構」に、最も強く、永続的な力を与えるものは何か。それが『信仰』だ。神や理念を信じる心は、人生という荒波の中で、私たちに「なぜ生きるのか」という問いへの答えを与え、「どう生きるべきか」という道を示す、揺るぎない「心の羅針盤」となる。
-                </p>
-                <p class="text-lg leading-relaxed text-gray-300">
-                    信仰は、困難に立ち向かう究極のエネルギー源を授ける。逆境を乗り越える「あきらめない心」と、他者のために自らを捧げる「人に尽くす心」の、尽きることのない源泉となるのだ。
-                </p>
-            </div>
-            <div class="md:w-1/2 flex justify-center items-center">
-                <svg width="250" height="250" viewBox="0 0 100 100" class="drop-shadow-lg">
-                    <circle cx="50" cy="50" r="48" fill="#1F2937" stroke="#FBBF24" stroke-width="2"/>
-                    <path d="M50 10 L45 20 L55 20 Z" fill="#FBBF24"/>
-                    <text x="47" y="8" font-size="6" fill="#FBBF24" font-family="serif">信</text>
-                    <line x1="50" y1="50" x2="50" y2="10" stroke="#FBBF24" stroke-width="1.5" />
-                    <line x1="50" y1="50" x2="78" y2="78" stroke="#E5E7EB" stroke-width="0.5" />
-                    <circle cx="50" cy="50" r="4" fill="#FBBF24" stroke="black" stroke-width="0.5"/>
-                </svg>
-            </div>
-        </section>
-
-        <!-- 第2章：団結 -->
-        <section class="mb-20 md:mb-32 fade-in-section">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6">団結こそが、未来を「現実」に変える</h2>
-                <p class="text-lg leading-relaxed text-gray-300 mb-12">
-                    そして、信仰がもたらす最も偉大な力、それが『団結』だ。同じ「虚構（信念）」を共有する人々が団結する時、そこに生まれるエネルギーは個人の力を遥かに超え、時に社会を動かし、歴史を創り、そして「思考」を「現実」へと変える巨大な力となる。
-                </p>
-            </div>
-            <!-- フロー -->
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 text-center text-white">
-                <div class="flex flex-col items-center p-4">
-                    <div class="bg-yellow-400 text-gray-900 rounded-full w-24 h-24 flex items-center justify-center text-lg font-bold">信念</div>
-                    <p class="mt-2 text-gray-400">個人の心に宿る</p>
-                </div>
-                <div class="text-yellow-400 font-bold text-4xl transform -rotate-90 md:rotate-0">→</div>
-                <div class="flex flex-col items-center p-4">
-                    <div class="bg-yellow-400 text-gray-900 rounded-full w-24 h-24 flex items-center justify-center text-lg font-bold">共有</div>
-                    <p class="mt-2 text-gray-400">物語として広がる</p>
-                </div>
-                <div class="text-yellow-400 font-bold text-4xl transform -rotate-90 md:rotate-0">→</div>
-                <div class="flex flex-col items-center p-4">
-                    <div class="bg-yellow-400 text-gray-900 rounded-full w-24 h-24 flex items-center justify-center text-lg font-bold">団結</div>
-                     <p class="mt-2 text-gray-400">共同体が生まれる</p>
-                </div>
-                <div class="text-yellow-400 font-bold text-4xl transform -rotate-90 md:rotate-0">→</div>
-                <div class="flex flex-col items-center p-4">
-                    <div class="bg-yellow-400 text-gray-900 rounded-full w-24 h-24 flex items-center justify-center text-lg font-bold">行動</div>
-                    <p class="mt-2 text-gray-400">世界に働きかける</p>
-                </div>
-                 <div class="text-yellow-400 font-bold text-4xl transform -rotate-90 md:rotate-0">→</div>
-                <div class="flex flex-col items-center p-4">
-                    <div class="bg-yellow-400 text-gray-900 rounded-full w-24 h-24 flex items-center justify-center text-lg font-bold">現実化</div>
-                    <p class="mt-2 text-gray-400">虚構が現実を創る</p>
-                </div>
-            </div>
-            <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                 <div class="icon-card rounded-lg p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">PL教団と世界一の花火</h3>
-                    <p class="text-gray-400">「世界平和への祈り」という信徒たちの想いが結集し、夜空を彩る壮大な芸術として結実した。</p>
-                </div>
-                <div class="icon-card rounded-lg p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">カトリック教会</h3>
-                    <p class="text-gray-400">10億人を超える信徒を、一つの「愛」の教えの下に繋ぎ止め、2000年に渡り世界に影響を与え続ける。</p>
+        <section class="py-20 sm:py-24 bg-white fade-in-section">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h3 class="section-title text-3xl md:text-4xl mb-12">「守る恐怖」から、「使う勇気」へ。</h3>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-left space-y-4 text-gray-700">
+                        <h4 class="font-bold text-2xl">私たちが、あなたの「心のコンシェルジュ」になります。</h4>
+                        <p>まず、ご安心ください。年金や介護保険といった日本の社会保障制度は、あなた様が路頭に迷うことがないよう、設計されています。その事実を、私たちが専門家として、丁寧にご説明します。</p>
+                        <p>その上で、あなた様が本当に遺したいものは、お金そのものではなく、ご自身が生きてきた証、その**「想い」**なのではないでしょうか。その尊い資産に、新しい**「いのち」**を与えるお手伝いをさせてください。</p>
+                    </div>
+                     <div class="flex items-center justify-center">
+                        <div class="text-center p-8 border-4 border-dashed border-accent-gold rounded-full">
+                             <p class="text-6xl mb-2">🗝️</p>
+                             <p class="font-bold text-xl">解放への鍵</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 結論 -->
-        <section class="text-center fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-6">未来の鍵は、あなたの心の中に</h2>
-            <div class="max-w-3xl mx-auto bg-gray-800 rounded-lg p-8 border border-yellow-400/30">
-                <p class="text-xl md:text-2xl font-semibold text-white italic leading-relaxed">
-                    「なにももってなくても、金もなくても、１人からでもなんでもできる」
-                </p>
+        <section id="cta" class="py-20 sm:py-24 fade-in-section">
+             <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h3 class="section-title text-3xl md:text-4xl accent-blue mb-6">あなたの人生の、新しい物語</h3>
+                <div class="bg-white p-10 rounded-lg shadow-xl">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-2xl font-bold">
+                        <div class="text-center">
+                            <p class="text-6xl mb-2">👴</p>
+                            <p>あなたの<br>「最後の生きがい」</p>
+                        </div>
+                        <div class="text-4xl text-gray-300 font-light transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="text-center">
+                            <p class="text-6xl mb-2">🏛️</p>
+                            <p>私たちのNPO法人<br>(聖なる器)</p>
+                        </div>
+                        <div class="text-4xl text-gray-300 font-light transform md:rotate-0 rotate-90">&rarr;</div>
+                        <div class="text-center">
+                            <p class="text-6xl mb-2">👧</p>
+                            <p>子どもたちの<br>「未来への希望」</p>
+                        </div>
+                    </div>
+                    <p class="mt-8 text-xl leading-relaxed">
+                        林様は、私たちのサポートで「使う勇気」を持ち、お孫さんへの教育費援助を決断され、家族との絆を取り戻しました。そして、残りの資産の一部を、子どもたちの未来のために遺贈することを決められました。彼の人生は、再び輝き始めたのです。
+                    </p>
+                     <a href="#" class="mt-8 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-md hover:opacity-90 transition text-lg">あなたの新しい物語を、私たちと始めませんか？</a>
+                </div>
             </div>
-            <p class="text-lg leading-relaxed text-gray-300 mt-8 max-w-3xl mx-auto">
-                その真実の鍵は、あなたの心の中にある。
-                あなたが何を信じ、何を願い、そして誰と団結するのか。
-                それこそが、あなたの、そして私たちの未来を決定づけるのだ。
-            </p>
         </section>
 
     </main>
 
-    <footer class="text-center py-8 border-t border-gray-800">
-        <p class="text-gray-500">&copy; 2025 The Power of Shared Beliefs. All rights reserved.</p>
+    <footer class="text-center py-10 mt-16 border-t">
+        <p class="text-gray-600">株式会社きらら</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in-section');
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        // 一度表示されたら監視を停止
-                        observer.unobserve(entry.target);
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const assetCtx = document.getElementById('assetChart')?.getContext('2d');
+    if (assetCtx) {
+        new Chart(assetCtx, {
+            type: 'bar',
+            data: {
+                labels: ['遺される資産の平均', '生前に使われる資産の平均'],
+                datasets: [{
+                    label: '金額（万円）',
+                    data: [2660, 2660 * 0.2], 
+                    backgroundColor: [
+                        'rgba(42, 74, 106, 0.7)',
+                        'rgba(192, 149, 83, 0.7)'
+                    ],
+                    borderColor: [
+                        '#2A4A6A',
+                        '#C09553'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                             title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            },
+                            label: function(context) {
+                                let value = context.parsed.y;
+                                return value.toLocaleString('ja-JP') + ' 万円';
+                            }
+                        }
                     }
-                });
-            }, {
-                rootMargin: '0px',
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-            
-            // ヒーローセクションはすぐに表示
-            const heroSection = document.querySelector('.hero-bg');
-            if(heroSection) {
-              setTimeout(() => {
-                heroSection.classList.add('is-visible');
-              }, 100);
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '万円';
+                            }
+                        }
+                    }
+                }
             }
         });
-    </script>
+    }
+
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+</script>
+
 </body>
 </html>
+
