@@ -38,6 +38,9 @@
             .timeline-item::after { left: 15px; }
             .timeline-right { left: 0%; }
         }
+        .flow-step { position: relative; padding-left: 4rem; padding-bottom: 2.5rem; border-left: 2px dashed #cbd5e1; }
+        .flow-step:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
+        .flow-step-number { position: absolute; left: -1.5rem; top: 0; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; background-color: #2A4A6A; color: white; font-weight: 700; font-size: 1.25rem; border: 4px solid #FDFBF8; }
     </style>
 </head>
 <body class="antialiased">
@@ -119,8 +122,38 @@
         <section id="model" class="py-20 sm:py-24 bg-gray-50">
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデル</h3>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデルとその根拠</h3>
                     <p class="text-lg text-gray-600">第2章：理念を現実に変える、私たちの方法論</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">収益シミュレーション：会員2万人規模での試算</h4>
+                     <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h5 class="font-bold text-lg accent-blue">第一の柱：月額会費収益</h5>
+                            <p class="text-sm text-gray-600 mb-2">事業を永続させるエンジン</p>
+                            <p class="text-gray-700 text-sm mb-4">安定した会費収益が、200人以上の専門スタッフの雇用と、高品質なサービス提供を支える、揺るぎない事業基盤となります。</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-xs">20,000人 × 10,000円/月 × 12ヶ月</p>
+                                <p class="font-bold text-xl accent-blue">年間会費収益（概算） 24億円</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg accent-gold">第二の柱：遺贈・寄付収益</h5>
+                            <p class="text-sm text-gray-600 mb-2">使命を果たすための原資</p>
+                            <p class="text-gray-700 text-sm mb-4">私たちの究極の信頼の証として託される遺贈。これが、子ども支援という私たちの使命を、無限に遂行可能にします。</p>
+                             <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-xs">※年間死亡率4%、平均資産額2,560万円と仮定</p>
+                                <p class="font-bold text-xl accent-gold">年間遺贈収益（ポテンシャル） 約205億円</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="font-bold text-center text-lg accent-blue mb-4">年間収益構造の可視化：基盤と使命</h5>
+                         <p class="text-center text-sm text-gray-600 mb-4">このグラフが、私たちの事業の全てを物語っています。安定した青い「基盤」があるからこそ、黄金の「使命」を、どこまでも追い求めることができるのです。</p>
+                        <div class="chart-container revenue-chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
                     <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則３：私たちは「労働」せず、人生を「監督」する</h4>
@@ -131,6 +164,36 @@
                         <div class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">訪問介護事業所</div>
                         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">提携葬儀社</div>
                         <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">本部法人</div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">お客様との歩み：５つのステップ</h4>
+                    <div class="max-w-2xl mx-auto">
+                        <div class="flow-step">
+                            <div class="flow-step-number">1</div>
+                            <h5 class="font-bold text-xl mb-2 accent-gold">出会いと、お声がけ</h5>
+                            <p class="text-gray-700 leading-relaxed">すべては、お客様が私たちのウェブサイトを見つけ、「助けてほしい」と、その勇気ある一歩を踏み出すことから始まります。</p>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-step-number">2</div>
+                            <h5 class="font-bold text-xl mb-2 accent-gold">対話（面談）</h5>
+                            <p class="text-gray-700 leading-relaxed">私が聞きたいのは、事務的な手続きの話ではありません。お客様がどんな人生を歩み、何を大切にし、何を不安に思っているのか。お客様の「人生の物語」そのものです。私たちの役割は、ただ聴き、お客様の心の奥にある、本当の願いを、一緒に見つけ出すことです。</p>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-step-number">3</div>
+                            <h5 class="font-bold text-xl mb-2 accent-gold">設計（生涯安心プランの作成）</h5>
+                            <p class="text-gray-700 leading-relaxed">お客様の物語と願いに基づき、あなただけの一生涯の「安心の設計図」を、私が責任をもって創り上げます。<br>（財産管理、身元保証、任意後見、遺言執行、死後事務）</p>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-step-number">4</div>
+                            <h5 class="font-bold text-xl mb-2 accent-gold">契約（生涯を懸けた約束）</h5>
+                            <p class="text-gray-700 leading-relaxed">設計図にご納得いただけたら、法的な契約を結びます。これはビジネス契約ではなく、私がお客様の人生の「総責任者」になるという、生涯を懸けた「約束」です。公正証書など、誰にも覆せない形で約束を固めます。</p>
+                        </div>
+                        <div class="flow-step">
+                            <div class="flow-step-number" style="background-color: #C09553;">5</div>
+                             <h5 class="font-bold text-xl mb-2 accent-gold">そして、あなたの「想い」を未来へ</h5>
+                            <p class="text-gray-700 leading-relaxed">全ての安心を手に入れた後、最後に、お客様の「想い」を、未来へ繋ぐ話をします。もし、財産に「行き場」がないのなら、NPO法人への「寄付」という選択肢があります。あなたの人生の証が、子どもたちの「未来への希望」へと変わる。これは、私たちからの提案であり、強制では決してありません。</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -197,25 +260,26 @@
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg fade-in-section">
                      <h4 class="text-2xl font-bold text-sky-700 mb-6 text-center">65歳からの生活保護と介護の安心ガイド（大阪市版）</h4>
-                     <div class="space-y-8">
+                     <div class="space-y-8 text-gray-700">
                         <div>
-                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">生活保護制度で生活費が保障</h5>
-                            <p class="text-sm text-gray-600 mb-4">国が定める「最低生活費」（生活扶助＋住宅扶助）に収入が満たない場合、不足分が支給されます。</p>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">理由1：生活保護制度で生活費が保障される</h5>
+                            <p class="text-sm mb-4">生活保護は、年金などの収入を含めても、国が定める「最低生活費」に満たない場合に、その不足分を補う制度です。</p>
                             <div class="grid md:grid-cols-2 gap-4 text-center">
-                                <div class="bg-sky-50 p-4 rounded-lg"><p>生活扶助（生活費）</p><p class="font-bold text-xl text-emerald-600">月額 約7.6万円</p></div>
-                                <div class="bg-sky-50 p-4 rounded-lg"><p>住宅扶助（家賃）</p><p class="font-bold text-xl text-emerald-600">月額 上限4万円</p></div>
+                                <div class="bg-sky-50 p-4 rounded-lg"><p class="font-semibold">生活扶助（生活費）</p><p class="font-bold text-xl text-emerald-600">月額 約7.6万円</p></div>
+                                <div class="bg-sky-50 p-4 rounded-lg"><p class="font-semibold">住宅扶助（家賃）</p><p class="font-bold text-xl text-emerald-600">月額 上限4万円</p></div>
                             </div>
-                            <p class="mt-4 text-sm text-gray-700">結果として、大阪市在住の65歳単身者の場合、年金等を含めた収入が**月額約11.6万円**に満たなければ、生活保護を受給できる可能性が非常に高くなります。</p>
+                            <p class="mt-4 text-sm font-bold bg-yellow-50 p-3 rounded">つまり、大阪市在住の65歳単身者の場合、収入が月額約11.6万円に満たなければ、生活保護を受給できる可能性が非常に高くなります。</p>
                         </div>
                         <div>
-                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">医療費・介護費の自己負担がゼロに</h5>
-                            <p class="text-sm text-gray-700">生活保護を受けると、医療扶助・介護扶助により、医療機関での受診や介護サービスの利用にかかる自己負担が原則なくなります。</p>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">理由2：医療費や介護費の自己負担がなくなる</h5>
+                            <p class="text-sm">生活保護を受けると、医療扶助・介護扶助により、医療機関での受診や介護サービスの利用にかかる自己負担は**自己負担ゼロ（無料）**となります。</p>
                         </div>
                         <div>
-                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">年金が少なくても介護施設に入れる</h5>
-                            <p class="text-sm text-gray-700">「特定入所者介護サービス費」などの負担減免制度により、特別養護老人ホーム等の食費・居住費が大幅に軽減されます。これにより、年金収入の範囲内で施設に入所することが可能です。</p>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">理由3：年金が少なくても介護施設に入れる</h5>
+                            <p class="text-sm">「特定入所者介護サービス費」などの負担減免制度により、特別養護老人ホーム等の食費・居住費が大幅に軽減され、年金収入の範囲内で施設に入所することが可能です。生活保護受給者は、有料老人ホームでも自己負担なく入所できる場合があります。</p>
                         </div>
                      </div>
+                     <p class="text-xs text-center mt-6 text-gray-400">&copy; 2024 生活・介護あんしんガイド. この情報は一般的な参考情報です。最新かつ正確な情報については、必ずお住まいの自治体にご確認ください。</p>
                 </div>
             </div>
         </section>
@@ -226,7 +290,7 @@
                     <h3 class="section-title text-3xl md:text-4xl mb-4">理念の実例</h3>
                     <p class="text-lg text-gray-600">第4章：私たちの哲学が、どのように人生を変えるのか</p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="fade-in-section bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
                         <h4 class="font-bold text-xl mb-2">File 01：一郎さんの生きがい</h4>
                         <p class="text-sm text-gray-700 leading-relaxed mb-4">「守る恐怖」から解放された資産が、ご自身の人生を輝かせた物語。</p>
@@ -246,6 +310,11 @@
                         <h4 class="font-bold text-xl mb-2">File 04：守り抜いた「尊厳」</h4>
                         <p class="text-sm text-gray-700 leading-relaxed mb-4">「法的な家族」として、人生の最終局面における自己決定権を守り抜いた「覚悟」の物語。</p>
                         <a href="https://g.co/gemini/share/b6310c7da16c" target="_blank" rel="noopener noreferrer" class="font-bold text-sm text-accent-blue hover:underline">物語を読む &rarr;</a>
+                    </div>
+                    <div class="fade-in-section bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold md:col-span-2 lg:col-span-1">
+                        <h4 class="font-bold text-xl mb-2">File 05：私が、この事業を始めたわけ</h4>
+                        <p class="text-sm text-gray-700 leading-relaxed mb-4">〜あなたと、この使命を共有するために〜</p>
+                        <a href="https://g.co/gemini/share/22628370f3c1" target="_blank" rel="noopener noreferrer" class="font-bold text-sm text-accent-blue hover:underline">物語を読む &rarr;</a>
                     </div>
                 </div>
             </div>
