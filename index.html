@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>このお金は、使えない。｜株式会社きらら</title>
+    <title>株式会社きらら 事業計画および共同経営者向け教育サイト</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Trust -->
-    <!-- Application Structure Plan: A single-page, long-form narrative infographic designed as a persuasive story. The structure follows a classic problem-solution-impact funnel, infused with a personal case study: 1. Hero (The emotional problem statement). 2. The Protagonist's Dilemma (telling the story of "Hayashi-san"). 3. The National Reality (broadening the problem with official data). 4. The Great Contradiction (revealing the social security imbalance). 5. The Revelation (introducing the "Concierge for the Heart"). 6. The Solution (the philosophy of "The Courage to Spend"). 7. The Ultimate Purpose (connecting assets to children's futures). 8. Call to Action. This linear story is the most effective way to build empathy and guide a visitor to the desired conclusion. -->
-    <!-- Visualization & Content Choices: The page uses KPI cards (HTML/CSS) for key data points, a bar chart (Chart.js) to visualize the gap between assets and spending, and several flow diagrams (HTML/CSS) to illustrate the mission. Goal: Inform/Compare/Organize. Method: Structured HTML/CSS and Chart.js. Interaction: On-scroll animations. Justification: KPI cards provide immediate impact for key statistics. The bar chart makes the abstract concept of "hoarded assets" tangible and visually compelling. The HTML flow diagrams clearly explain the social security contradiction and the "Cycle of Happiness," which are core to the business's social mission. NO SVG/Mermaid used. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -38,15 +34,109 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 350px;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
+        .revenue-chart-container {
+            max-width: 800px;
+            height: 400px;
+        }
+        .market-chart-container {
+            max-width: 400px;
+            height: 400px;
+        }
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e2e8f0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #C09553;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-left {
+            left: 0;
+        }
+        .timeline-right {
+            left: 50%;
+        }
+        .timeline-right::after {
+            left: -16px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f8fafc;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+         @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
             }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 15px;
+            }
+            .timeline-right {
+                left: 0%;
+            }
+        }
+        /* Service Flow styles */
+        .flow-step {
+            position: relative;
+            padding-left: 4rem; /* Space for number circle */
+            padding-bottom: 2.5rem;
+            border-left: 2px dashed #cbd5e1;
+        }
+        .flow-step:last-child {
+            border-left: 2px solid transparent;
+            padding-bottom: 0;
+        }
+        .flow-step-number {
+            position: absolute;
+            left: -1.5rem; /* Center the circle on the line */
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: #2A4A6A;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border: 4px solid #FDFBF8;
         }
     </style>
 </head>
@@ -54,216 +144,112 @@
 
     <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold accent-blue">株式会社きらら</h1>
-            <a href="#cta" class="bg-accent-gold text-white font-bold py-2 px-4 rounded-md hover:opacity-90 transition">ご相談はこちら</a>
+            <h1 class="text-xl font-bold accent-blue">株式会社きらら 事業計画・教育サイト</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-bold">
+                <a href="#top" class="hover:text-accent-gold transition">TOP</a>
+                <a href="#business_plan" class="hover:text-accent-gold transition">事業計画</a>
+                <a href="#roadmap" class="hover:text-accent-gold transition">ロードマップ</a>
+                <a href="#service_flow" class="hover:text-accent-gold transition">ご契約の流れ</a>
+                <a href="#summary" class="hover:text-accent-gold transition">事業サマリー</a>
+                <a href="#storybook" class="hover:text-accent-gold transition">ストーリー</a>
+            </nav>
         </div>
     </header>
 
     <main>
-
-        <section class="py-24 sm:py-32 bg-white text-center fade-in-section">
+        <section id="top" class="py-24 sm:py-32 bg-accent-blue text-white text-center">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-4xl md:text-6xl font-black accent-blue">このお金は、使えないんだ…</h2>
-                <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-                    十分な資産を持ちながら、将来への漠然とした不安から、お金を「使う」のではなく「守る」だけの人生になっていませんか？
-                    これは、あなた様だけの悩みではありません。
+                <h2 class="text-4xl md:text-6xl font-black">事業の「魂」を、インストールする。</h2>
+                <p class="mt-6 text-lg text-white/80 leading-relaxed">
+                    これは、単なるビジネスプランではありません。この国が抱える最も深い「病」を治し、<br>高齢者の「孤独な資産」を、子どもたちの「未来への希望」へと転換する、壮大な社会変革の物語です。
                 </p>
             </div>
         </section>
 
-        <section class="py-20 sm:py-24 fade-in-section">
-            <div class="container mx-auto px-6 max-w-4xl">
-                 <div class="text-center mb-12">
-                     <h3 class="section-title text-2xl md:text-3xl">ある、78歳男性の「声なき叫び」</h3>
-                 </div>
-                 <div class="bg-white p-8 rounded-lg shadow-xl border-l-4 border-accent-gold">
-                    <p class="text-gray-700 italic leading-relaxed">「私はもう78歳。あと何年生きるかわかりません。それに、もし体が動かなくなったら、老人ホームに入るかもしれない。お金を減らすわけにはいかないのです…」</p>
-                    <p class="mt-4 text-gray-700 italic leading-relaxed">「昔、娘たちに『親を当てにするな』と言ってしまった。孫たちの学費の援助くらい、してやってもよかったのではないかと…。もう手遅れでしょうか？」</p>
-                    <p class="text-right mt-4 text-sm text-gray-500">- 林正之様（仮名）のお言葉 -</p>
-                 </div>
-            </div>
-        </section>
+        <section id="business_plan" class="py-20 sm:py-24">
+            <div class="container mx-auto px-6 max-w-5xl space-y-20">
+                <div class="text-center fade-in-section">
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業計画書</h3>
+                    <p class="text-lg text-gray-600">私たちの使命と、その証明</p>
+                </div>
 
-        <section class="py-20 sm:py-24 bg-white fade-in-section">
-            <div class="container mx-auto px-6 text-center max-w-5xl">
-                <h3 class="section-title text-3xl md:text-4xl mb-12">データが示す、日本の「現実」</h3>
-                <div class="grid md:grid-cols-2 gap-8 mb-12">
-                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
-                        <h4 class="font-bold text-lg text-gray-500">80歳を過ぎても…</h4>
-                        <p class="text-4xl font-black accent-blue mt-2">資産の<span class="text-6xl">8割</span>以上が残る</p>
-                        <p class="text-xs text-gray-400 mt-2">出典: 令和6年経済財政白書</p>
-                    </div>
-                     <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
-                        <h4 class="font-bold text-lg text-gray-500">平均相続財産</h4>
-                        <p class="text-4xl font-black accent-blue mt-2"><span class="text-6xl">2,660</span>万円</p>
-                         <p class="text-xs text-gray-400 mt-2">出典: 鎌倉新書 2025年調査</p>
-                    </div>
-                </div>
-                <h4 class="text-2xl font-bold mb-6">遺される資産と、使われる想い</h4>
-                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">多くの方が、人生の最後に大きな資産を遺されます。しかし、生前にご自身の人生を豊かにするため、そして大切な誰かのために使われるお金は、ごく僅かです。このグラフは、その「ギャップ」を示しています。</p>
-                <div class="chart-container">
-                    <canvas id="assetChart"></canvas>
-                </div>
-            </div>
-        </section>
-        
-        <section class="py-20 sm:py-24 fade-in-section">
-             <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h3 class="section-title text-3xl md:text-4xl accent-blue mb-6">社会保障の「矛盾」を、私たちの「使命」に変える</h3>
-                <div class="text-lg leading-relaxed text-gray-700 space-y-6 bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
-                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-2xl font-bold mb-6">
-                        <div class="text-center">
-                            <p class="text-6xl mb-2">👨‍💼</p>
-                            <p>現役世代</p>
-                            <p class="text-xl font-normal accent-gold">負担：年間約110万円</p>
+                <div class="fade-in-section">
+                    <h4 class="section-title text-2xl md:text-3xl text-center mb-12">第1章：この国の「病」— 絶望的な構造</h4>
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div class="bg-gray-50 p-8 rounded-lg">
+                            <p class="text-6xl mb-4">👴</p>
+                            <h3 class="text-xl font-bold mb-2">孤独な高齢者たち</h3>
+                            <p class="text-gray-700">誰にも看取られず、人生の最期を一人で迎える。彼らが遺す、使い道のない「孤独な資産」は2000兆円とも言われます。</p>
                         </div>
-                        <div class="text-4xl text-gray-300 font-light">&rarr;</div>
-                        <div class="text-center">
-                            <p class="text-6xl mb-2">👵</p>
-                            <p>高齢者世代</p>
-                             <p class="text-xl font-normal accent-blue">受給：年間約270万円</p>
+                        <div class="bg-gray-50 p-8 rounded-lg">
+                            <p class="text-6xl mb-4">👧</p>
+                            <h3 class="text-xl font-bold mb-2">希望を求める子どもたち</h3>
+                            <p class="text-gray-700">親の愛を知らず、自分の居場所を見つけられない子どもたちが、たくさんいます。</p>
                         </div>
                     </div>
-                    <p>
-                        資産が十分にあるご高齢者でさえも、若者たちが支えるこの社会保障で生活し、一方で、ご自身の莫大な個人資産は、未来への不安から使われることなく**「死蔵」**されてしまう。
-                    </p>
-                    <p class="font-bold">
-                        この富の**「一方通行」**と**「停滞」**こそが、日本の未来から活力を奪っている根本的な病巣です。
-                    </p>
-                     <p>
-                        私たちの事業は、この矛盾を、美しい**「循環」**へと、完全に**「ひっくり返す」**こと。ご高齢者の「死蔵資産」を、私たちの究極の**「信頼」**によって、未来を担う**「子供たち」**へと、直接的に再分配する。それこそが、私たちの使命なのです。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-20 sm:py-24 bg-white fade-in-section">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h3 class="section-title text-3xl md:text-4xl mb-12">「守る恐怖」から、「使う勇気」へ。</h3>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-left space-y-4 text-gray-700">
-                        <h4 class="font-bold text-2xl">私たちが、あなたの「心のコンシェルジュ」になります。</h4>
-                        <p>まず、ご安心ください。年金や介護保険といった日本の社会保障制度は、あなた様が路頭に迷うことがないよう、設計されています。その事実を、私たちが専門家として、丁寧にご説明します。</p>
-                        <p>その上で、あなた様が本当に遺したいものは、お金そのものではなく、ご自身が生きてきた証、その**「想い」**なのではないでしょうか。その尊い資産に、新しい**「いのち」**を与えるお手伝いをさせてください。</p>
+                    <div class="mt-12 max-w-3xl mx-auto bg-red-50 border border-red-200 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-red-800 mb-2">病巣：シルバー民主主義</h4>
+                        <p class="text-gray-700">政治は、票を持つ高齢者ばかりを見て、未来への投資を怠る。この構造は選挙では変えられません。私たちは、これを民間から、根本的にひっくり返します。</p>
                     </div>
-                     <div class="flex items-center justify-center">
-                        <div class="text-center p-8 border-4 border-dashed border-accent-gold rounded-full">
-                             <p class="text-6xl mb-2">🗝️</p>
-                             <p class="font-bold text-xl">解放への鍵</p>
+                </div>
+
+                <div class="fade-in-section">
+                    <h4 class="section-title text-2xl md:text-3xl accent-blue text-center mb-12">社会保障の「矛盾」を、私たちの「使命」に変える</h4>
+                    <div class="text-lg leading-relaxed text-gray-700 space-y-6 bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 text-center text-xl font-bold mb-6">
+                            <div class="text-center">
+                                <p class="text-6xl mb-2">👨‍💼</p>
+                                <p>現役世代</p>
+                                <p class="text-lg font-normal accent-gold">負担：年間約110万円</p>
+                            </div>
+                            <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                            <div class="text-center">
+                                <p class="text-6xl mb-2">👵</p>
+                                <p>高齢者世代</p>
+                                <p class="text-lg font-normal accent-blue">受給：年間約270万円</p>
+                            </div>
+                        </div>
+                        <p>
+                            資産が十分にあるご高齢者でさえも、若者たちが支えるこの社会保障で生活し、一方で、ご自身の莫大な個人資産は、未来への不安から使われることなく**「死蔵」**されてしまう。
+                        </p>
+                        <p class="font-bold">
+                            この富の**「一方通行」**と**「停滞」**こそが、日本の未来から活力を奪っている根本的な病巣です。
+                        </p>
+                        <p>
+                            私たちの事業は、この矛盾を、美しい**「循環」**へと、完全に**「ひっくり返す」**こと。ご高齢者の「死蔵資産」を、私たちの究極の**「信頼」**によって、未来を担う**「子供たち」**へと、直接的に再分配する。それこそが、私たちの使命なのです。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white py-20 sm:py-24 fade-in-section">
+                    <div class="container mx-auto px-6 text-center">
+                        <h4 class="section-title text-2xl md:text-3xl mb-12">第2章：巨大な市場と、素人たちの「罠」</h4>
+                        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                            <div class="text-left">
+                                <h5 class="text-2xl font-bold mb-4">遺贈・寄付という「巨大な市場」</h5>
+                                <p class="mb-4 text-gray-700">このグラフが示す通り、高齢者サポート事業者のうち、実に<span class="font-black text-4xl accent-gold">約7割</span>が、遺贈や寄付の申し出を受け入れる意思を持っています。市場は、巨大です。</p>
+                                <h5 class="text-2xl font-bold mb-4 accent-blue">しかし、そのほとんどは「素人」です。</h5>
+                                <p class="text-gray-700">彼らは、お客様の「意思」と「判断能力」を法的に証明する術を知りません。だから、「親族との裁判」や「契約無効」といった、取り返しのつかないトラブルを頻発させる。これは、私たちにとって、圧倒的な<span class="font-bold">チャンス</span>です。</p>
+                            </div>
+                            <div class="chart-container market-chart-container">
+                                <canvas id="marketChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta" class="py-20 sm:py-24 fade-in-section">
-             <div class="container mx-auto px-6 text-center max-w-4xl">
-                <h3 class="section-title text-3xl md:text-4xl accent-blue mb-6">あなたの人生の、新しい物語</h3>
-                <div class="bg-white p-10 rounded-lg shadow-xl">
-                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-2xl font-bold">
-                        <div class="text-center">
-                            <p class="text-6xl mb-2">👴</p>
-                            <p>あなたの<br>「最後の生きがい」</p>
-                        </div>
-                        <div class="text-4xl text-gray-300 font-light transform md:rotate-0 rotate-90">&rarr;</div>
-                        <div class="text-center">
-                            <p class="text-6xl mb-2">🏛️</p>
-                            <p>私たちのNPO法人<br>(聖なる器)</p>
-                        </div>
-                        <div class="text-4xl text-gray-300 font-light transform md:rotate-0 rotate-90">&rarr;</div>
-                        <div class="text-center">
-                            <p class="text-6xl mb-2">👧</p>
-                            <p>子どもたちの<br>「未来への希望」</p>
-                        </div>
-                    </div>
-                    <p class="mt-8 text-xl leading-relaxed">
-                        林様は、私たちのサポートで「使う勇気」を持ち、お孫さんへの教育費援助を決断され、家族との絆を取り戻しました。そして、残りの資産の一部を、子どもたちの未来のために遺贈することを決められました。彼の人生は、再び輝き始めたのです。
-                    </p>
-                     <a href="#" class="mt-8 inline-block bg-accent-gold text-white font-bold py-3 px-8 rounded-md hover:opacity-90 transition text-lg">あなたの新しい物語を、私たちと始めませんか？</a>
+        <section id="roadmap" class="py-20 sm:py-24">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <div class="text-center fade-in-section mb-20">
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">全国展開へのロードマップ</h3>
+                    <p class="text-lg text-gray-600">2万人の人生を支え、日本一になるまでの道筋</p>
                 </div>
-            </div>
-        </section>
 
-    </main>
-
-    <footer class="text-center py-10 mt-16 border-t">
-        <p class="text-gray-600">株式会社きらら</p>
-    </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const assetCtx = document.getElementById('assetChart')?.getContext('2d');
-    if (assetCtx) {
-        new Chart(assetCtx, {
-            type: 'bar',
-            data: {
-                labels: ['遺される資産の平均', '生前に使われる資産の平均'],
-                datasets: [{
-                    label: '金額（万円）',
-                    data: [2660, 2660 * 0.2], 
-                    backgroundColor: [
-                        'rgba(42, 74, 106, 0.7)',
-                        'rgba(192, 149, 83, 0.7)'
-                    ],
-                    borderColor: [
-                        '#2A4A6A',
-                        '#C09553'
-                    ],
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                             title: function(tooltipItems) {
-                                const item = tooltipItems[0];
-                                let label = item.chart.data.labels[item.dataIndex];
-                                if (Array.isArray(label)) {
-                                  return label.join(' ');
-                                } else {
-                                  return label;
-                                }
-                            },
-                            label: function(context) {
-                                let value = context.parsed.y;
-                                return value.toLocaleString('ja-JP') + ' 万円';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '万円';
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    const sections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
-</script>
-
-</body>
-</html>
-
+                <div class="timeline">
+                    <div class="timeline-item timeline-left fade-in-section">
+                        <div class="timeline-content border-t-4 border-accent-gold">
+                            <h5 class="font-bold text-xl mb-2 accent-blue">フェーズ１：基盤固め【大阪】</h5>
+                            <p class="text-sm text-gray-500 font-bold mb-4">期間：1〜2年後</p>
+                            <p class="mb-3
