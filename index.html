@@ -11,11 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Noto+Sans+JP', sans-serif;
-            background-color: #FDFBF8;
-            color: #3D3D3D;
-        }
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #FDFBF8; color: #3D3D3D; }
         .accent-blue { color: #2A4A6A; }
         .bg-accent-blue { background-color: #2A4A6A; }
         .border-accent-blue { border-color: #2A4A6A; }
@@ -42,9 +38,6 @@
             .timeline-item::after { left: 15px; }
             .timeline-right { left: 0%; }
         }
-        .flow-step { position: relative; padding-left: 4rem; padding-bottom: 2.5rem; border-left: 2px dashed #cbd5e1; }
-        .flow-step:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
-        .flow-step-number { position: absolute; left: -1.5rem; top: 0; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; background-color: #2A4A6A; color: white; font-weight: 700; font-size: 1.25rem; border: 4px solid #FDFBF8; }
     </style>
 </head>
 <body class="antialiased">
@@ -56,6 +49,7 @@
                 <a href="#philosophy" class="hover:text-accent-gold transition">理念</a>
                 <a href="#model" class="hover:text-accent-gold transition">事業モデル</a>
                 <a href="#profile" class="hover:text-accent-gold transition">代表者紹介</a>
+                <a href="#appendix" class="hover:text-accent-gold transition">参考資料</a>
                 <a href="#storybook" class="hover:text-accent-gold transition">実例</a>
                 <a href="#vision" class="hover:text-accent-gold transition">未来展望</a>
             </nav>
@@ -76,27 +70,23 @@
             <div class="container mx-auto px-6 max-w-4xl space-y-20">
                 <div class="text-center fade-in-section">
                     <h3 class="section-title text-3xl md:text-4xl mb-4">私たちの使命と、その証明</h3>
-                    <p class="text-lg text-gray-600">第1章：この国の「病」— 絶望的な構造</p>
+                    <p class="text-lg text-gray-600">第1章：私たちが向き合う、この国の「現実」</p>
                 </div>
-                <div class="fade-in-section space-y-12">
-                    <div class="grid md:grid-cols-2 gap-8 text-left">
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                            <p class="text-6xl mb-4">👴</p>
-                            <h4 class="text-xl font-bold mb-2">孤独な高齢者たち</h4>
-                            <p class="text-gray-700">誰にも看取られず、人生の最期を一人で迎える。彼らが遺す、使い道のない「孤独な資産」は2000兆円とも言われます。</p>
+                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">データが示す、動かぬ事実</h4>
+                    <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">内閣府や民間調査機関の最新データは、私たちの事業がいかに巨大な社会的意義と市場性を持つかを明確に示しています。</p>
+                    <div class="grid md:grid-cols-2 gap-6 text-left">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h5 class="font-bold text-gray-800">80歳を過ぎても資産の8割以上が残る現実</h5>
+                            <p class="text-sm text-gray-600 mt-2">内閣府「令和6年度経済財政白書」によると、日本の高齢者は80歳を過ぎても平均で1〜2割程度しか資産を減らしていません。これは、多くの方が将来への不安から、貯めてきた資産を使わずに温存されていることを示唆しています。</p>
                         </div>
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                            <p class="text-6xl mb-4">👧</p>
-                            <h4 class="text-xl font-bold mb-2">希望を求める子どもたち</h4>
-                            <p class="text-gray-700">親の愛を知らず、自分の居場所を見つけられない子どもたちが、たくさんいます。</p>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h5 class="font-bold text-gray-800">平均2,660万円という相続財産</h5>
+                            <p class="text-sm text-gray-600 mt-2">鎌倉新書「相続手続きに関する実態調査（2025年）」によると、相続財産の平均は全国で2,660万円、1都3県では3,505万円にものぼります。この莫大な資産が、使われることなく次世代へ移転しているのが現状です。</p>
                         </div>
                     </div>
-                    <div class="text-center bg-red-50 border border-red-200 p-6 rounded-lg">
-                        <h4 class="text-xl font-bold text-red-800 mb-2">病巣：シルバー民主主義</h4>
-                        <p class="text-gray-700">政治は、票を持つ高齢者ばかりを見て、未来への投資を怠る。この構造は選挙では変えられません。私たちは、これを民間から、根本的にひっくり返します。</p>
-                    </div>
+                     <p class="text-xs text-center mt-4 text-gray-400">情報ソース: <a href="https://news.yahoo.co.jp/articles/5874ba66f7746a5eeed2084feedac824c9f7e2e9?page=1" target="_blank" rel="noopener noreferrer" class="underline hover:text-accent-blue">Yahoo!ニュース</a></p>
                 </div>
-
                 <div class="fade-in-section">
                     <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則１：社会の「矛盾」を、私たちの「使命」に変える</h4>
                     <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
@@ -110,7 +100,6 @@
                         <p class="mt-6 text-gray-700">資産を持つ高齢者でさえも、若者が支える社会保障で生活し、一方で自身の莫大な資産は不安から「死蔵」される。この富の「一方通行」と「停滞」こそが、日本の未来を蝕む病巣です。</p>
                     </div>
                 </div>
-
                 <div class="fade-in-section">
                     <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則２：「矛盾」を「循環」へと、ひっくり返す</h4>
                     <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
@@ -130,59 +119,8 @@
         <section id="model" class="py-20 sm:py-24 bg-gray-50">
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデルとその根拠</h3>
-                    <p class="text-lg text-gray-600">第2章：巨大な市場と、私たちの合理的な戦略</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">事業モデルの根拠となる、動かぬ「事実」</h4>
-                    <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">私たちの事業は、情熱だけで動いているのではありません。日本が抱える巨大な課題と、そこに眠る莫大な資産という、公的データに裏付けられた、極めて合理的な戦略に基づいています。</p>
-                    <div class="grid md:grid-cols-3 gap-6 text-center">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <p class="font-bold text-gray-500">独居高齢者数</p>
-                            <p class="text-4xl font-black accent-gold my-2">900<span class="text-lg">万人超</span></p>
-                            <p class="text-xs text-gray-400">出典: 総務省</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <p class="font-bold text-gray-500">認知症高齢者数</p>
-                            <p class="text-4xl font-black accent-gold my-2">471<span class="text-lg">万人</span></p>
-                            <p class="text-xs text-gray-400">出典: 厚生労働省</p>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <p class="font-bold text-gray-500">高齢者世帯の平均貯蓄額</p>
-                            <p class="text-4xl font-black accent-gold my-2">2,509<span class="text-lg">万円</span></p>
-                            <p class="text-xs text-gray-400">出典: 2024年調査</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">収益シミュレーション：会員2万人規模での試算</h4>
-                     <div class="grid md:grid-cols-2 gap-8 text-left">
-                        <div>
-                            <h5 class="font-bold text-lg accent-blue">第一の柱：月額会費収益</h5>
-                            <p class="text-sm text-gray-600 mb-2">事業を永続させるエンジン</p>
-                            <p class="text-gray-700 text-sm mb-4">安定した会費収益が、200人以上の専門スタッフの雇用と、高品質なサービス提供を支える、揺るぎない事業基盤となります。</p>
-                            <div class="bg-gray-50 p-4 rounded-lg">
-                                <p class="text-xs">20,000人 × 10,000円/月 × 12ヶ月</p>
-                                <p class="font-bold text-xl accent-blue">年間会費収益（概算） 24億円</p>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="font-bold text-lg accent-gold">第二の柱：遺贈・寄付収益</h5>
-                            <p class="text-sm text-gray-600 mb-2">使命を果たすための原資</p>
-                            <p class="text-gray-700 text-sm mb-4">私たちの究極の信頼の証として託される遺贈。これが、子ども支援という私たちの使命を、無限に遂行可能にします。</p>
-                             <div class="bg-gray-50 p-4 rounded-lg">
-                                <p class="text-xs">800人/年 (4%) × 2,560万円/人</p>
-                                <p class="font-bold text-xl accent-gold">年間遺贈収益（ポテンシャル） 約205億円</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8">
-                        <h5 class="font-bold text-center text-lg accent-blue mb-4">年間収益構造の可視化：基盤と使命</h5>
-                        <p class="text-center text-sm text-gray-600 mb-4">このグラフが、私たちの事業の全てを物語っています。安定した青い「基盤」があるからこそ、黄金の「使命」を、どこまでも追い求めることができるのです。</p>
-                        <div class="chart-container revenue-chart-container">
-                            <canvas id="revenueChart"></canvas>
-                        </div>
-                    </div>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデル</h3>
+                    <p class="text-lg text-gray-600">第2章：理念を現実に変える、私たちの方法論</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
                     <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則３：私たちは「労働」せず、人生を「監督」する</h4>
@@ -251,7 +189,38 @@
             </div>
         </section>
 
-        <section id="storybook" class="py-20 sm:py-24 bg-gray-50">
+        <section id="appendix" class="py-20 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center fade-in-section mb-12">
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">参考資料：公的制度の理解</h3>
+                    <p class="text-lg text-gray-600">私たちがお客様の「守る恐怖」を取り除く際、その土台となるのが日本の手厚い公的扶助制度です。以下は、共同経営者として完全に理解しておくべき知識の根幹です（大阪市版）。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg fade-in-section">
+                     <h4 class="text-2xl font-bold text-sky-700 mb-6 text-center">65歳からの生活保護と介護の安心ガイド（大阪市版）</h4>
+                     <div class="space-y-8">
+                        <div>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">生活保護制度で生活費が保障</h5>
+                            <p class="text-sm text-gray-600 mb-4">国が定める「最低生活費」（生活扶助＋住宅扶助）に収入が満たない場合、不足分が支給されます。</p>
+                            <div class="grid md:grid-cols-2 gap-4 text-center">
+                                <div class="bg-sky-50 p-4 rounded-lg"><p>生活扶助（生活費）</p><p class="font-bold text-xl text-emerald-600">月額 約7.6万円</p></div>
+                                <div class="bg-sky-50 p-4 rounded-lg"><p>住宅扶助（家賃）</p><p class="font-bold text-xl text-emerald-600">月額 上限4万円</p></div>
+                            </div>
+                            <p class="mt-4 text-sm text-gray-700">結果として、大阪市在住の65歳単身者の場合、年金等を含めた収入が**月額約11.6万円**に満たなければ、生活保護を受給できる可能性が非常に高くなります。</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">医療費・介護費の自己負担がゼロに</h5>
+                            <p class="text-sm text-gray-700">生活保護を受けると、医療扶助・介護扶助により、医療機関での受診や介護サービスの利用にかかる自己負担が原則なくなります。</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl mb-3 text-sky-800 border-b pb-2">年金が少なくても介護施設に入れる</h5>
+                            <p class="text-sm text-gray-700">「特定入所者介護サービス費」などの負担減免制度により、特別養護老人ホーム等の食費・居住費が大幅に軽減されます。これにより、年金収入の範囲内で施設に入所することが可能です。</p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="storybook" class="py-20 sm:py-24">
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
                     <h3 class="section-title text-3xl md:text-4xl mb-4">理念の実例</h3>
@@ -282,7 +251,7 @@
             </div>
         </section>
 
-        <section id="vision" class="py-20 sm:py-24">
+        <section id="vision" class="py-20 sm:py-24 bg-gray-50">
             <div class="container mx-auto px-6 max-w-5xl">
                 <div class="text-center fade-in-section mb-16">
                     <h3 class="section-title text-3xl md:text-4xl mb-4">未来展望：全国展開へのロードマップ</h3>
@@ -363,74 +332,14 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
-
     const marketChartCtx = document.getElementById('marketChart')?.getContext('2d');
-    if (marketChartCtx) {
-        new Chart(marketChartCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['遺贈・寄付を受け入れる事業者', '受け入れない事業者'],
-                datasets: [{ data: [70.1, 29.9], backgroundColor: ['#2A4A6A', '#E0E0E0'], borderColor: '#f8fafc', borderWidth: 4 }]
-            },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
-        });
-    }
-
+    if (marketChartCtx) { new Chart(marketChartCtx, { type: 'doughnut', data: { labels: ['遺贈・寄付を受け入れる事業者', '受け入れない事業者'], datasets: [{ data: [70.1, 29.9], backgroundColor: ['#2A4A6A', '#E0E0E0'], borderColor: '#f8fafc', borderWidth: 4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } } }); }
     const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
-    if (revenueCtx) {
-        new Chart(revenueCtx, {
-            type: 'bar',
-            data: {
-                labels: ['年間会費収益 (事業基盤)', '年間遺贈収益 (最大ポテンシャル)'],
-                datasets: [{
-                    label: '年間収益（円）', data: [2400000000, 20480000000],
-                    backgroundColor: ['rgba(42, 74, 106, 0.7)', 'rgba(192, 149, 83, 0.7)'],
-                    borderColor: ['#2A4A6A', '#C09553'], borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let value = context.parsed.x;
-                                if (value >= 100000000) { return (value / 100000000).toLocaleString('ja-JP') + ' 億円'; }
-                                return value.toLocaleString('ja-JP') + ' 円';
-                            }
-                        }
-                    }
-                },
-                scales: { x: { ticks: { callback: function(value) { if (value >= 100000000) { return (value / 100000000) + '億円'; } return value/100000000; } } } }
-            }
-        });
-    }
-
+    if (revenueCtx) { new Chart(revenueCtx, { type: 'bar', data: { labels: ['年間会費収益 (事業基盤)', '年間遺贈収益 (最大ポテンシャル)'], datasets: [{ label: '年間収益（円）', data: [2400000000, 20480000000], backgroundColor: ['rgba(42, 74, 106, 0.7)', 'rgba(192, 149, 83, 0.7)'], borderColor: ['#2A4A6A', '#C09553'], borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(context) { let value = context.parsed.x; if (value >= 100000000) { return (value / 100000000).toLocaleString('ja-JP') + ' 億円'; } return value.toLocaleString('ja-JP') + ' 円'; } } } }, scales: { x: { ticks: { callback: function(value) { if (value >= 100000000) { return (value / 100000000) + '億円'; } return value; } } } } } }); }
     const sections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
-
-    document.querySelectorAll('header nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                const headerOffset = document.querySelector('header').offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-            }
-        });
-    });
+    document.querySelectorAll('header nav a').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetElement = document.querySelector(targetId); if(targetElement) { const headerOffset = document.querySelector('header').offsetHeight; const elementPosition = targetElement.getBoundingClientRect().top; const offsetPosition = elementPosition + window.pageYOffset - headerOffset; window.scrollTo({ top: offsetPosition, behavior: "smooth" }); } }); });
 });
 </script>
 
