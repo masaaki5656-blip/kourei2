@@ -6,6 +6,7 @@
     <title>株式会社きらら 共同経営者向け 事業理念サイト</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
@@ -31,10 +32,23 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
+        .chart-container { position: relative; width: 100%; }
+        .market-chart-container { height: 400px; max-width: 400px; margin: auto; }
+        .revenue-chart-container { height: 400px; max-width: 800px; margin: auto; }
+        /* Timeline styles */
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background-color: #e2e8f0; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; right: -17px; background-color: #FDFBF8; border: 4px solid #C09553; top: 30px; border-radius: 50%; z-index: 1; }
+        .timeline-left { left: 0; }
+        .timeline-right { left: 50%; }
+        .timeline-right::after { left: -16px; }
+        .timeline-content { padding: 20px 30px; background-color: white; position: relative; border-radius: 6px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 15px; }
+            .timeline-right { left: 0%; }
         }
     </style>
 </head>
@@ -64,37 +78,47 @@
         </section>
 
         <section id="philosophy" class="py-20 sm:py-24">
-            <div class="container mx-auto px-6 max-w-4xl space-y-16">
+            <div class="container mx-auto px-6 max-w-4xl space-y-20">
                 <div class="text-center fade-in-section">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">私たちの理念</h3>
-                    <p class="text-lg text-gray-600">第1章：なぜ、私たちはこの事業を興すのか</p>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">私たちの使命と、その証明</h3>
+                    <p class="text-lg text-gray-600">第1章：この国の「病」— 絶望的な構造</p>
                 </div>
-                <div class="fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">この国の「病」— 絶望的な構造</h4>
-                    <div class="grid md:grid-cols-2 gap-8 text-left bg-white p-8 rounded-lg shadow-xl">
-                        <div class="bg-gray-50 p-6 rounded">
-                            <p class="text-5xl mb-3">👴</p>
-                            <h5 class="font-bold mb-2">孤独な高齢者たち</h5>
-                            <p class="text-sm text-gray-700">誰にも看取られず、人生の最期を一人で迎える。彼らが遺す、使い道のない「孤独な資産」は2000兆円とも言われます。</p>
+                <div class="fade-in-section space-y-12">
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <p class="text-6xl mb-4">👴</p>
+                            <h4 class="text-xl font-bold mb-2">孤独な高齢者たち</h4>
+                            <p class="text-gray-700">誰にも看取られず、人生の最期を一人で迎える。彼らが遺す、使い道のない「孤独な資産」は2000兆円とも言われます。</p>
                         </div>
-                        <div class="bg-gray-50 p-6 rounded">
-                            <p class="text-5xl mb-3">👧</p>
-                            <h5 class="font-bold mb-2">希望を求める子どもたち</h5>
-                            <p class="text-sm text-gray-700">親の愛を知らず、自分の居場所を見つけられない子どもたちが、たくさんいます。</p>
-                        </div>
-                        <div class="col-span-2 mt-4 text-center bg-red-50 border border-red-200 p-4 rounded-lg">
-                            <h5 class="font-bold text-red-800">病巣：シルバー民主主義</h5>
-                            <p class="text-sm text-gray-700">政治は、票を持つ高齢者ばかりを見て、未来への投資を怠る。この構造は選挙では変えられません。私たちは、これを民間から、根本的にひっくり返します。</p>
+                        <div class="bg-white p-8 rounded-lg shadow-lg">
+                            <p class="text-6xl mb-4">👧</p>
+                            <h4 class="text-xl font-bold mb-2">希望を求める子どもたち</h4>
+                            <p class="text-gray-700">親の愛を知らず、自分の居場所を見つけられない子どもたちが、たくさんいます。</p>
                         </div>
                     </div>
+                    <div class="text-center bg-red-50 border border-red-200 p-6 rounded-lg">
+                        <h4 class="text-xl font-bold text-red-800 mb-2">病巣：シルバー民主主義</h4>
+                        <p class="text-gray-700">政治は、票を持つ高齢者ばかりを見て、未来への投資を怠る。この構造は選挙では変えられません。私たちは、これを民間から、根本的にひっくり返します。</p>
+                    </div>
                 </div>
-                <div class="text-center fade-in-section">
-                     <h4 class="font-bold text-2xl text-center mb-8 accent-blue">使命：「停滞」を「循環」へ</h4>
-                     <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                        十分な資産を持つ高齢者でさえ、若者が支える社会保障で生活し、ご自身の資産は不安から「死蔵」される。この富の「一方通行」と「停滞」こそが、日本の活力を奪う病巣です。
-                        私たちの使命は、この矛盾を、美しい「循環」へと完全にひっくり返すこと。お客様の人生の証である尊い資産を、行き場のない子どもたちの「未来への希望」へと繋ぐ。
-                        この**「幸せの永久機関」**を社会に実装することこそ、私たちが存在する唯一の理由です。
-                    </p>
+                <div class="fade-in-section">
+                    <h4 class="section-title text-2xl md:text-3xl accent-blue text-center mb-12">社会保障の「矛盾」を、私たちの「使命」に変える</h4>
+                    <div class="text-lg leading-relaxed text-gray-700 space-y-6 bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 text-center text-xl font-bold mb-6">
+                            <div class="text-center">
+                                <p class="text-6xl mb-2">👨‍💼</p>
+                                <p>現役世代<br><span class="text-base font-normal accent-gold">負担：年間約110万円</span></p>
+                            </div>
+                            <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                            <div class="text-center">
+                                <p class="text-6xl mb-2">👵</p>
+                                <p>高齢者世代<br><span class="text-base font-normal accent-blue">受給：年間約270万円</span></p>
+                            </div>
+                        </div>
+                        <p>資産が十分にあるご高齢者でさえも、若者たちが支えるこの社会保障で生活し、一方で、ご自身の莫大な個人資産は、未来への不安から使われることなく「死蔵」されてしまう。</p>
+                        <p class="font-bold text-center">この富の「一方通行」と「停滞」こそが、日本の未来から活力を奪っている根本的な病巣です。</p>
+                        <p>私たちの事業は、この矛盾を、美しい「循環」へと、完全に「ひっくり返す」こと。ご高齢者の「死蔵資産」を、私たちの究極の「信頼」によって、未来を担う「子供たち」へと、直接的に再分配する。それこそが、私たちの使命なのです。</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -103,37 +127,20 @@
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
                     <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデル</h3>
-                    <p class="text-lg text-gray-600">第2章：理念を現実に変える、私たちの方法論</p>
+                    <p class="text-lg text-gray-600">第2章：巨大な市場と、私たちの勝機</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">巨大な市場と、私たちの勝機</h4>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="text-sm text-gray-700 space-y-4">
-                             <p>高齢者サポート事業者のうち、実に7割が遺贈・寄付の申し出を受け入れる意思を持っています。市場は巨大です。</p>
+                        <div class="text-gray-700 space-y-4">
+                            <h4 class="font-bold text-2xl accent-blue">遺贈・寄付という「巨大な市場」</h4>
+                             <p>このグラフが示す通り、高齢者サポート事業者のうち、実に約7割が、遺贈や寄付の申し出を受け入れる意思を持っています。市場は、巨大です。</p>
                              <p class="font-bold">しかし、そのほとんどは「素人」です。</p>
-                             <p>彼らは、お客様の「意思」と「判断能力」を法的に証明する術を知りません。だから、「親族との裁判」や「契約無効」といったトラブルを頻発させる。これこそ、専門家である私たちにとって、圧倒的な勝機です。</p>
+                             <p>彼らは、お客様の「意思」と「判断能力」を法的に証明する術を知りません。だから、「親族との裁判」や「契約無効」といった、取り返しのつかないトラブルを頻発させる。これこそ、専門家である私たちにとって、圧倒的なチャンスです。</p>
                         </div>
-                        <div class="chart-container">
+                        <div class="chart-container market-chart-container">
                              <canvas id="marketChart"></canvas>
                         </div>
                     </div>
-                </div>
-                 <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">お客様との歩み：５つのステップ</h4>
-                    <ol class="list-decimal list-inside space-y-4 text-gray-700 max-w-2xl mx-auto">
-                        <li><b>ヒアリング：</b>お客様が歩んでこられた人生、価値観、そして不安。その「物語」のすべてを、私たちは深く理解することから始めます。</li>
-                        <li><b>生涯安心プランの設計：</b>物語に基づき、財産管理、身元保証、任意後見、遺言執行、死後事務までを網羅した、オーダーメイドの「安心の設計図」を創り上げます。</li>
-                        <li><b>契約（約束）：</b>設計図にご納得いただけたら、公正証書等の法的に万全な形で、生涯にわたる「約束」を交わします。</li>
-                        <li><b>人生の併走：</b>私たちは「法的な家族」として、契約に基づきお客様の人生に寄り添い、あらゆる局面で意思決定を支え、実行します。</li>
-                        <li><b>想いを未来へ：</b>お客様の人生の証である資産を、ご希望に応じてNPO法人を通じ、子どもたちの未来へ繋ぐお手伝いをします。</li>
-                    </ol>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">事業を支える経済合理性</h4>
-                    <div class="chart-container" style="height: 400px;">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                    <p class="text-center text-sm text-gray-700 mt-4 max-w-2xl mx-auto">年間24億円の安定収益で事業を永続させ、そこから生まれる究極の信頼の証である年間205億円というポテンシャルを持つ遺贈収益の全てを、子どもたちの未来のために投資します。（注：理論上の最大値）</p>
                 </div>
             </div>
         </section>
@@ -141,7 +148,7 @@
         <section id="profile" class="py-20 sm:py-24">
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">代表者紹介</h3>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">代表者紹介：『人生の総監督』</h3>
                     <p class="text-lg text-gray-600">第3章：なぜ「私」だけが、この事業を成し遂げられるのか</p>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 fade-in-section">
@@ -149,40 +156,39 @@
                         <img src="https://placehold.co/600x600/e0e7ff/3730a3?text=代表" alt="代表者の顔写真" class="rounded-full aspect-square object-cover shadow-md mx-auto">
                     </div>
                     <div class="w-full md:w-2/3">
-                        <h4 class="text-2xl md:text-3xl font-bold mb-4 accent-blue">ご挨拶：『人生の総監督』として</h4>
+                        <h4 class="text-2xl md:text-3xl font-bold mb-4 accent-blue">ご挨拶：理念を現実にする力</h4>
                         <div class="space-y-4 text-gray-700">
-                           <p>はじめまして。私が代表です。</p>
-                           <p>私がこれまで歩んできた道は、すべてこの事業を成し遂げるためにありました。医療・介護、法律、不動産、経営。これら人の人生の根幹に関わる分野で、私は単なる専門家ではなく、常に最高の結果を出す「実践家」として生きてきました。</p>
+                           <p>はじめまして。私が代表です。私がこれまで歩んできた道は、すべてこの事業を成し遂げるためにありました。医療・介護、法律、不動産、経営。これら人の人生の根幹に関わる分野で、私は単なる専門家ではなく、常に最高の結果を出す「実践家」として生きてきました。</p>
                            <p>身体の不調、将来への不安、財産の管理、そして人生の終焉。お客様が直面するあらゆる課題を、分野の壁を越えてワンストップで解決できるのは、この国で私だけだと自負しています。私の「非凡な思考OS」が、いかなる課題の本質も見抜き、あなたと共に最善の未来を創造することをお約束します。</p>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">医療・介護の専門家として</h4>
+                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section transition-transform transform hover:scale-105 hover:shadow-2xl">
+                        <div class="flex items-center mb-4"><i data-lucide="heart-pulse" class="w-10 h-10 text-accent-blue mr-4"></i><h4 class="text-2xl font-bold text-gray-900">医療・介護</h4></div>
                         <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
                             <li><b>主な保有資格:</b> 柔道整復師、鍼灸師、主任ケアマネージャー、認定調査員</li>
                             <li>業界トップクラスの整骨院で培った最高の技術と知識。</li>
                             <li>脳神経外科や内科病院でのリハビリ経験を通じ、西洋医学と東洋医学の両面からアプローチ。</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">法律・財産管理の専門家として</h4>
+                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section transition-transform transform hover:scale-105 hover:shadow-2xl">
+                        <div class="flex items-center mb-4"><i data-lucide="shield-check" class="w-10 h-10 text-accent-blue mr-4"></i><h4 class="text-2xl font-bold text-gray-900">法律・財産管理</h4></div>
                          <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
                             <li>任意後見契約、遺言公正証書、死後事務委任契約など、公正証書を多数作成。</li>
                             <li>任意後見人、遺言執行人として、お客様の意思を最後まで責任を持って実現。</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">不動産・終活の専門家として</h4>
+                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section transition-transform transform hover:scale-105 hover:shadow-2xl">
+                        <div class="flex items-center mb-4"><i data-lucide="home" class="w-10 h-10 text-accent-blue mr-4"></i><h4 class="text-2xl font-bold text-gray-900">不動産・終活</h4></div>
                         <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
                             <li>30回以上の不動産売買で、常に市場の常識を超える成果を達成。</li>
                             <li>複雑な不動産登記手続きも自ら完遂する専門性。</li>
                             <li>葬儀、納骨、墓仕舞いまで、故人の意思を尊重し、最後まで責任を持って実行。</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">経営と人材育成</h4>
+                    <div class="bg-white rounded-xl shadow-lg p-8 fade-in-section transition-transform transform hover:scale-105 hover:shadow-2xl">
+                        <div class="flex items-center mb-4"><i data-lucide="bar-chart-3" class="w-10 h-10 text-accent-blue mr-4"></i><h4 class="text-2xl font-bold text-gray-900">経営・人材育成</h4></div>
                         <ul class="list-disc list-inside space-y-2 text-sm text-gray-700">
                             <li>全国の治療院に対し、経営基盤を強化するWEB集客コンサルティングを提供。</li>
                             <li>社員向けの研修マニュアルを作成し、次世代のプロフェッショナルを育成。</li>
@@ -226,32 +232,61 @@
         <section id="vision" class="py-20 sm:py-24">
             <div class="container mx-auto px-6 max-w-5xl">
                 <div class="text-center fade-in-section mb-16">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">未来展望</h3>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">未来展望：全国展開へのロードマップ</h3>
                     <p class="text-lg text-gray-600">最終章：2万人の人生を支え、日本一になるまでの道筋</p>
                 </div>
                 <div class="timeline">
                     <div class="timeline-item timeline-left fade-in-section">
-                        <div class="timeline-content">
-                            <h5 class="font-bold text-lg mb-1 accent-blue">フェーズ１：基盤固め【大阪】 (1〜2年後)</h5>
-                            <p class="text-sm text-gray-700">大阪で事業モデルを完璧に磨き上げ、再現性のある「勝利の方程式」を確立する。</p>
+                        <div class="timeline-content border-t-4 border-accent-gold">
+                            <h5 class="font-bold text-xl mb-2 accent-blue">フェーズ１：基盤固め【大阪】</h5>
+                            <p class="text-sm text-gray-500 font-bold mb-4">期間：1〜2年後</p>
+                            <p class="mb-3 text-gray-700">大阪で事業モデルを完璧に磨き上げ、再現性のある「勝利の方程式」を確立する。</p>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li>コーポレートサイトとNPO法人を設立し、信用の土台を固める。</li>
+                                <li>業務マニュアルと研修プログラムを完成させる。</li>
+                                <li>地域での圧倒的な実績を積み上げる。</li>
+                                <li><b>目標顧客数：1,000人 / 目標スタッフ数：10人</b></li>
+                            </ul>
                         </div>
                     </div>
                      <div class="timeline-item timeline-right fade-in-section">
-                        <div class="timeline-content">
-                            <h5 class="font-bold text-lg mb-1 accent-blue">フェーズ２：巨大市場への挑戦【東京】 (3〜4年後)</h5>
-                            <p class="text-sm text-gray-700">日本最大の市場である東京で、大阪モデルが通用することを証明し、全国展開への足がかりを築く。</p>
+                        <div class="timeline-content border-t-4 border-accent-blue">
+                            <h5 class="font-bold text-xl mb-2 accent-blue">フェーズ２：巨大市場への挑戦【東京】</h5>
+                            <p class="text-sm text-gray-500 font-bold mb-4">期間：3〜4年後</p>
+                            <p class="mb-3 text-gray-700">日本最大の市場である東京で、大阪モデルが通用することを証明し、全国展開への足がかりを築く。</p>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li>東京支社を開設し、責任者を任命する。</li>
+                                <li>東京エリアに特化したLPとオンライン広告で、集中的に顧客を獲得する。</li>
+                                <li>現地の法律家や医療機関とのネットワークを構築する。</li>
+                                <li><b>目標顧客数：累計 4,000人 / 目標スタッフ数：40人</b></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item timeline-left fade-in-section">
-                        <div class="timeline-content">
-                            <h5 class="font-bold text-lg mb-1 accent-blue">フェーズ３：戦略的全国展開 (5〜7年後)</h5>
-                            <p class="text-sm text-gray-700">神奈川、愛知、埼玉など高齢者人口が多い主要都市に拠点を拡大し、事業を指数関数的に成長させる。</p>
+                        <div class="timeline-content border-t-4 border-accent-gold">
+                            <h5 class="font-bold text-xl mb-2 accent-blue">フェーズ３：戦略的全国展開</h5>
+                            <p class="text-sm text-gray-500 font-bold mb-4">期間：5〜7年後</p>
+                            <p class="mb-3 text-gray-700">高齢者人口が多い主要都市に拠点を拡大し、事業を指数関数的に成長させる。</p>
+                             <ul class="list-disc list-inside text-sm space-y-2">
+                                <li>高齢者人口の多い順に、神奈川、愛知、埼玉へと支社を順次開設。</li>
+                                <li>全拠点を統括する管理プラットフォームを導入する。</li>
+                                <li>NPO法人の子ども支援事業を本格化させる。</li>
+                                <li><b>目標顧客数：累計 12,000人 / 目標スタッフ数：120人</b></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item timeline-right fade-in-section">
-                        <div class="timeline-content">
-                            <h5 class="font-bold text-lg mb-1 accent-blue">フェーズ４：「日本一」の達成と継承 (7〜10年後)</h5>
-                            <p class="text-sm text-gray-700">目標の2万人支援を達成し、この事業を社会インフラとして、次の世代へ継承する。</p>
+                        <div class="timeline-content border-t-4 border-accent-blue">
+                            <h5 class="font-bold text-xl mb-2 accent-blue">フェーズ４：「日本一」の達成と継承</h5>
+                            <p class="text-sm text-gray-500 font-bold mb-4">期間：7〜10年後</p>
+                            <p class="mb-3 text-gray-700">目標の2万人支援を達成し、社会インフラとして、次の世代へ事業を継承する。</p>
+                             <ul class="list-disc list-inside text-sm space-y-2">
+                                <li>千葉、北海道、兵庫、福岡など、残る主要都市への展開を完了。</li>
+                                <li>私たちの事業モデルが、国の高齢者支援のスタンダードとなる。</li>
+                                <li>NPOの子ども支援が、社会を動かす巨大なムーブメントとなる。</li>
+                                <li>次世代への事業継承を本格化させる。</li>
+                                <li><b>目標顧客数：20,000人 / 目標スタッフ数：200人</b></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -273,25 +308,17 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Charts
+    lucide.createIcons();
+
     const marketChartCtx = document.getElementById('marketChart')?.getContext('2d');
     if (marketChartCtx) {
         new Chart(marketChartCtx, {
             type: 'doughnut',
             data: {
                 labels: ['遺贈・寄付を受け入れる事業者', '受け入れない事業者'],
-                datasets: [{
-                    data: [70.1, 29.9],
-                    backgroundColor: ['#2A4A6A', '#E0E0E0'],
-                    borderColor: '#FDFBF8',
-                    borderWidth: 4,
-                }]
+                datasets: [{ data: [70.1, 29.9], backgroundColor: ['#2A4A6A', '#E0E0E0'], borderColor: '#f8fafc', borderWidth: 4 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
         });
     }
 
@@ -302,17 +329,13 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: ['年間会費収益 (事業基盤)', '年間遺贈収益 (最大ポテンシャル)'],
                 datasets: [{
-                    label: '年間収益（円）',
-                    data: [2400000000, 20480000000],
+                    label: '年間収益（円）', data: [2400000000, 20480000000],
                     backgroundColor: ['rgba(42, 74, 106, 0.7)', 'rgba(192, 149, 83, 0.7)'],
-                    borderColor: ['#2A4A6A', '#C09553'],
-                    borderWidth: 2
+                    borderColor: ['#2A4A6A', '#C09553'], borderWidth: 2
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: 'y',
+                responsive: true, maintainAspectRatio: false, indexAxis: 'y',
                 plugins: {
                     legend: { display: false },
                     tooltip: {
@@ -325,21 +348,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 },
-                scales: {
-                    x: {
-                        ticks: {
-                            callback: function(value) {
-                                if (value >= 100000000) { return (value / 100000000) + '億円'; }
-                                return value/100000000;
-                            }
-                        }
-                    }
-                }
+                scales: { x: { ticks: { callback: function(value) { if (value >= 100000000) { return (value / 100000000) + '億円'; } return value; } } } }
             }
         });
     }
 
-    // Intersection Observer
     const sections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -351,7 +364,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
 
-    // Smooth scroll
     document.querySelectorAll('header nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
