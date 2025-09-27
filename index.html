@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Noto+Sans+JP', sans-serif;
             background-color: #FDFBF8;
             color: #3D3D3D;
         }
@@ -23,19 +23,11 @@
         .bg-accent-gold { background-color: #C09553; }
         .border-accent-gold { border-color: #C09553; }
         .section-title { font-weight: 900; }
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in-section { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
+        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
         .chart-container { position: relative; width: 100%; }
         .market-chart-container { height: 400px; max-width: 400px; margin: auto; }
         .revenue-chart-container { height: 400px; max-width: 800px; margin: auto; }
-        /* Timeline styles */
         .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
         .timeline::after { content: ''; position: absolute; width: 6px; background-color: #e2e8f0; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
         .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
@@ -50,6 +42,9 @@
             .timeline-item::after { left: 15px; }
             .timeline-right { left: 0%; }
         }
+        .flow-step { position: relative; padding-left: 4rem; padding-bottom: 2.5rem; border-left: 2px dashed #cbd5e1; }
+        .flow-step:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
+        .flow-step-number { position: absolute; left: -1.5rem; top: 0; display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: 50%; background-color: #2A4A6A; color: white; font-weight: 700; font-size: 1.25rem; border: 4px solid #FDFBF8; }
     </style>
 </head>
 <body class="antialiased">
@@ -72,7 +67,7 @@
             <div class="container mx-auto px-6 max-w-4xl">
                 <h2 class="text-4xl md:text-6xl font-black">事業の「魂」を、インストールする。</h2>
                 <p class="mt-6 text-lg text-white/80 leading-relaxed">
-                    共同経営者である、あなたへ。<br>ここに、私たちが共に創り上げる事業の設計図、そのすべてを記します。
+                    共同経営者である、あなたへ。<br>これは、単なるビジネスプランではありません。この国が抱える最も深い「病」を治し、高齢者の「孤独な資産」を、子どもたちの「未来への希望」へと転換する、壮大な社会変革の物語です。
                 </p>
             </div>
         </section>
@@ -101,23 +96,32 @@
                         <p class="text-gray-700">政治は、票を持つ高齢者ばかりを見て、未来への投資を怠る。この構造は選挙では変えられません。私たちは、これを民間から、根本的にひっくり返します。</p>
                     </div>
                 </div>
+
                 <div class="fade-in-section">
-                    <h4 class="section-title text-2xl md:text-3xl accent-blue text-center mb-12">社会保障の「矛盾」を、私たちの「使命」に変える</h4>
-                    <div class="text-lg leading-relaxed text-gray-700 space-y-6 bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
-                        <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 text-center text-xl font-bold mb-6">
-                            <div class="text-center">
-                                <p class="text-6xl mb-2">👨‍💼</p>
-                                <p>現役世代<br><span class="text-base font-normal accent-gold">負担：年間約110万円</span></p>
-                            </div>
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則１：社会の「矛盾」を、私たちの「使命」に変える</h4>
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 text-center text-xl font-bold">
+                            <div class="text-center"><p class="text-6xl mb-2">👨‍💼</p><p>現役世代</p></div>
                             <div class="text-4xl text-gray-300 font-light">&rarr;</div>
-                            <div class="text-center">
-                                <p class="text-6xl mb-2">👵</p>
-                                <p>高齢者世代<br><span class="text-base font-normal accent-blue">受給：年間約270万円</span></p>
-                            </div>
+                            <div class="text-center"><p class="text-6xl mb-2">👵</p><p>高齢者世代</p></div>
+                            <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                            <div class="text-center"><p class="text-6xl mb-2">🏦</p><p>死蔵資産</p></div>
                         </div>
-                        <p>資産が十分にあるご高齢者でさえも、若者たちが支えるこの社会保障で生活し、一方で、ご自身の莫大な個人資産は、未来への不安から使われることなく「死蔵」されてしまう。</p>
-                        <p class="font-bold text-center">この富の「一方通行」と「停滞」こそが、日本の未来から活力を奪っている根本的な病巣です。</p>
-                        <p>私たちの事業は、この矛盾を、美しい「循環」へと、完全に「ひっくり返す」こと。ご高齢者の「死蔵資産」を、私たちの究極の「信頼」によって、未来を担う「子供たち」へと、直接的に再分配する。それこそが、私たちの使命なのです。</p>
+                        <p class="mt-6 text-gray-700">資産を持つ高齢者でさえも、若者が支える社会保障で生活し、一方で自身の莫大な資産は不安から「死蔵」される。この富の「一方通行」と「停滞」こそが、日本の未来を蝕む病巣です。</p>
+                    </div>
+                </div>
+
+                <div class="fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則２：「矛盾」を「循環」へと、ひっくり返す</h4>
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-accent-gold">
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-4 md:space-y-0 text-center text-xl font-bold">
+                            <div class="text-center"><p class="text-6xl mb-2">👴</p><p>高齢者の<br>「ありがとう」(遺贈)</p></div>
+                            <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                            <div class="text-center"><p class="text-6xl mb-2">🏛️</p><p>私たちのNPO法人<br>(聖なる器)</p></div>
+                            <div class="text-4xl text-gray-300 font-light">&rarr;</div>
+                            <div class="text-center"><p class="text-6xl mb-2">👧</p><p>子どもたちの<br>「未来への希望」</p></div>
+                        </div>
+                        <p class="mt-6 text-gray-700">私たちの事業は、この矛盾を、美しい「循環」へと完全にひっくり返します。ご高齢者の「死蔵資産」を、私たちの究極の「信頼」によって、未来を担う「子供たち」へと、直接的に再分配する。これが、私たちの創り出す「幸せの永久機関」です。</p>
                     </div>
                 </div>
             </div>
@@ -126,20 +130,69 @@
         <section id="model" class="py-20 sm:py-24 bg-gray-50">
             <div class="container mx-auto px-6 max-w-4xl space-y-16">
                 <div class="text-center fade-in-section">
-                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデル</h3>
-                    <p class="text-lg text-gray-600">第2章：巨大な市場と、私たちの勝機</p>
+                    <h3 class="section-title text-3xl md:text-4xl mb-4">事業モデルとその根拠</h3>
+                    <p class="text-lg text-gray-600">第2章：巨大な市場と、私たちの合理的な戦略</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="text-gray-700 space-y-4">
-                            <h4 class="font-bold text-2xl accent-blue">遺贈・寄付という「巨大な市場」</h4>
-                             <p>このグラフが示す通り、高齢者サポート事業者のうち、実に約7割が、遺贈や寄付の申し出を受け入れる意思を持っています。市場は、巨大です。</p>
-                             <p class="font-bold">しかし、そのほとんどは「素人」です。</p>
-                             <p>彼らは、お客様の「意思」と「判断能力」を法的に証明する術を知りません。だから、「親族との裁判」や「契約無効」といった、取り返しのつかないトラブルを頻発させる。これこそ、専門家である私たちにとって、圧倒的なチャンスです。</p>
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">事業モデルの根拠となる、動かぬ「事実」</h4>
+                    <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">私たちの事業は、情熱だけで動いているのではありません。日本が抱える巨大な課題と、そこに眠る莫大な資産という、公的データに裏付けられた、極めて合理的な戦略に基づいています。</p>
+                    <div class="grid md:grid-cols-3 gap-6 text-center">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <p class="font-bold text-gray-500">独居高齢者数</p>
+                            <p class="text-4xl font-black accent-gold my-2">900<span class="text-lg">万人超</span></p>
+                            <p class="text-xs text-gray-400">出典: 総務省</p>
                         </div>
-                        <div class="chart-container market-chart-container">
-                             <canvas id="marketChart"></canvas>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <p class="font-bold text-gray-500">認知症高齢者数</p>
+                            <p class="text-4xl font-black accent-gold my-2">471<span class="text-lg">万人</span></p>
+                            <p class="text-xs text-gray-400">出典: 厚生労働省</p>
                         </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <p class="font-bold text-gray-500">高齢者世帯の平均貯蓄額</p>
+                            <p class="text-4xl font-black accent-gold my-2">2,509<span class="text-lg">万円</span></p>
+                            <p class="text-xs text-gray-400">出典: 2024年調査</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">収益シミュレーション：会員2万人規模での試算</h4>
+                     <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h5 class="font-bold text-lg accent-blue">第一の柱：月額会費収益</h5>
+                            <p class="text-sm text-gray-600 mb-2">事業を永続させるエンジン</p>
+                            <p class="text-gray-700 text-sm mb-4">安定した会費収益が、200人以上の専門スタッフの雇用と、高品質なサービス提供を支える、揺るぎない事業基盤となります。</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-xs">20,000人 × 10,000円/月 × 12ヶ月</p>
+                                <p class="font-bold text-xl accent-blue">年間会費収益（概算） 24億円</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg accent-gold">第二の柱：遺贈・寄付収益</h5>
+                            <p class="text-sm text-gray-600 mb-2">使命を果たすための原資</p>
+                            <p class="text-gray-700 text-sm mb-4">私たちの究極の信頼の証として託される遺贈。これが、子ども支援という私たちの使命を、無限に遂行可能にします。</p>
+                             <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-xs">800人/年 (4%) × 2,560万円/人</p>
+                                <p class="font-bold text-xl accent-gold">年間遺贈収益（ポテンシャル） 約205億円</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h5 class="font-bold text-center text-lg accent-blue mb-4">年間収益構造の可視化：基盤と使命</h5>
+                        <p class="text-center text-sm text-gray-600 mb-4">このグラフが、私たちの事業の全てを物語っています。安定した青い「基盤」があるからこそ、黄金の「使命」を、どこまでも追い求めることができるのです。</p>
+                        <div class="chart-container revenue-chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl fade-in-section">
+                    <h4 class="font-bold text-2xl text-center mb-8 accent-blue">原則３：私たちは「労働」せず、人生を「監督」する</h4>
+                    <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">私たちのスタッフは、介護や雑務といった「労働」は一切行いません。高度な専門知識で訓練されたプロとして、お客様の人生の「総監督」となり、中央の「司令塔」として、全ての外部専門家を動かします。</p>
+                    <div class="relative w-full max-w-md mx-auto aspect-square">
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-32 h-32 bg-accent-blue text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">司令塔<br>(私たち)</div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">24時間コールセンター</div>
+                        <div class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">訪問介護事業所</div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">提携葬儀社</div>
+                        <div class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 bg-gray-100 p-2 rounded-md text-xs shadow">本部法人</div>
                     </div>
                 </div>
             </div>
@@ -290,6 +343,7 @@
                         </div>
                     </div>
                 </div>
+                 <p class="text-center mt-12 font-bold text-xl fade-in-section accent-blue">これが、私たちが共に歩む、未来への道筋です。</p>
             </div>
         </section>
 
@@ -348,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 },
-                scales: { x: { ticks: { callback: function(value) { if (value >= 100000000) { return (value / 100000000) + '億円'; } return value; } } } }
+                scales: { x: { ticks: { callback: function(value) { if (value >= 100000000) { return (value / 100000000) + '億円'; } return value/100000000; } } } }
             }
         });
     }
